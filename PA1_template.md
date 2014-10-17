@@ -1,15 +1,11 @@
----
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
----
+# Reproducible Research: Peer Assessment 1
 
 
 ## Loading and preprocessing the data
 
 We need to load the data into R, so we pull the data out of the zip file and load it as a csv:
-```{r}
+
+```r
 initdata <- read.csv(unz(description = "activity.zip", filename = "activity.csv"))
 ```
 
@@ -20,24 +16,34 @@ Then we do some processing/transforming to get it in the format we need
 
 1. Make a histogram of the total number of steps taken each day
 
-```{r}
-hist(initdata$steps, main="Histogram of Number of Steps Taken per Day", xlab="Steps per Day")
+
+```r
+hist(initdata$steps,main="Histogram of Number of Steps Taken per Day",xlab="Steps per Day")
 ```
+
+![](./PA1_template_files/figure-html/unnamed-chunk-2-1.png) 
 
 2. Calculate and report the mean and median total number of steps taken per day
 
-```{r}
-mean(initdata$steps, na.rm=TRUE)
-median(initdata$steps, na.rm=TRUE)
+
+```r
+mean(initdata$steps,na.rm=TRUE)
+```
+
+```
+## [1] 37.3826
+```
+
+```r
+median(initdata$steps,na.rm=TRUE)
+```
+
+```
+## [1] 0
 ```
 
 ## What is the average daily activity pattern?
 
-1. Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
-
-
-
-2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
 
 ## Imputing missing values
