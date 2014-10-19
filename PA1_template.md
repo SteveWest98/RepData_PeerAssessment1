@@ -1,4 +1,9 @@
-# Reproducible Research: Peer Assessment 1
+---
+title: "Reproducible Research: Peer Assessment 1"
+output: 
+  html_document:
+    keep_md: true
+---
 Assumptions: We assume the packages "plyr" and "ggplot2" have been installed before running this code.
 
 ## Loading and preprocessing the data
@@ -27,7 +32,7 @@ fivemininterval <- ddply(initdata, .(interval), summarize, meansteps = mean(step
 hist(stepsperday$steps, main="Number of Steps Taken per Day", xlab="Steps per Day")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-3-1.png) 
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png) 
 
 2. Calculate and report the mean and median total number of steps taken per day
 
@@ -51,7 +56,7 @@ plot(fivemininterval,type="l", xaxt='n', main = "Average Number of Steps Taken P
 axis(side=1, at=seq(0,2400,by=400))
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-5-1.png) 
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png) 
 
 
 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
@@ -96,7 +101,7 @@ imputedstepsperday <- ddply(newdata, .(date), summarize, steps = sum(steps, na.r
 hist(imputedstepsperday$steps, main="Number of Steps Taken per Day", xlab="Steps per Day")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-9-1.png) 
+![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9-1.png) 
 
 ```r
 imputedmean <- mean(imputedstepsperday$steps, na.rm=TRUE)
@@ -124,6 +129,6 @@ daysfive <- ddply(newdata, .(interval, day), summarize, meansteps = mean(steps))
 qplot(interval, meansteps, data = daysfive, facets = .~day, geom = "line", main = "Comparison of steps on weekdays and weekends", ylab = "Average number of steps")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-11-1.png) 
+![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11-1.png) 
 
 
